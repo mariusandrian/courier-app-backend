@@ -4,8 +4,8 @@ const httpResponseFormatter = require('../formatters/httpResponseFormatter');
 module.exports = {
     async getCustomerSubmittedPackages(req, res) {
         try {
-            const data = 1;
-            httpResponseFormatter.formatOkResponse(res, data )
+            const result = await packageRepository.getPackageByCustomerId(req.params.id);
+            httpResponseFormatter.formatOkResponse(res, result)
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {
                 err: err

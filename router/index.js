@@ -3,7 +3,7 @@ const courierController = require('../controllers/courierController');
 const usersController = require('../controllers/usersController');
 
 module.exports = app => {
-    // app.get('/package/submit/:id', packageController.getCustomerSubmittedPackages);
+    app.get('/package/submit/:id', packageController.getCustomerSubmittedPackages);
     // app.get('/package/new', packageController.getAllSubmittedPackages);
     // app.get('/package/ip', packageController.getAllInProgressPackages);
     // app.get('/package/done', packageController.getAllDonePackages);

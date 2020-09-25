@@ -12,5 +12,8 @@ const doFindMany = async condition => {
      async createOne (data) {
          const {ops: [newOne]} = await db.packages.insertOne(data);
          return newOne;
+     },
+     getPackageByCustomerId (id) {
+        return doFindMany({requesterId: id})
      }
  }
