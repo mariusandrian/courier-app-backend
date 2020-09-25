@@ -30,8 +30,9 @@ module.exports = {
             }
         }
     },
-    async findById (id) {
-        const result = await db.users.findOne({_id: ObjectId(id)});
+    async getOneByEmail (email) {
+        const [result] = await doFindMany({email: email});
+        if (!result) throw new Error(`User with email '${email}' does not exist`);
         return result;
     },
 }
