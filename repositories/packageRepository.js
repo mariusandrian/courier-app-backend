@@ -1,7 +1,7 @@
 const db = require('../db');
 
 const doFindMany = async condition => {
-    const data = await db.couriers.find(condition).toArray()
+    const data = await db.packages.find(condition).toArray()
     return data
  };
 
@@ -10,7 +10,7 @@ const doFindMany = async condition => {
          return doFindMany({});
      },
      async createOne (data) {
-         const {ops: [newOne]} = await db.couriers.insertOne(data);
+         const {ops: [newOne]} = await db.packages.insertOne(data);
          return newOne;
      }
  }
