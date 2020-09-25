@@ -10,6 +10,15 @@ const doFindMany = async condition => {
      getAll () {
          return doFindMany({});
      },
+     async getAllSubmitted () {
+         return doFindMany({status: "Processing"});
+     },
+     async getAllInProgress() {
+        return doFindMany({status: "In Progress"});
+    },
+    async getAllDone () {
+        return doFindMany({status: "Delivered"});
+    },
      async createOne (data) {
          const {ops: [newOne]} = await db.packages.insertOne(data);
          return newOne;

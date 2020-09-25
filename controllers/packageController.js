@@ -14,8 +14,8 @@ module.exports = {
     },
     async getAllSubmittedPackages(req, res) {
         try {
-            const data = 1;
-            httpResponseFormatter.formatOkResponse(res, data)
+            const result = await packageRepository.getAllSubmitted();
+            httpResponseFormatter.formatOkResponse(res, result);
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {
                 err: err
@@ -24,8 +24,8 @@ module.exports = {
     },
     async getAllInProgressPackages(req, res) {
         try {
-            const data = 1;
-            httpResponseFormatter.formatOkResponse(res, data)
+            const result = await packageRepository.getAllInProgress();
+            httpResponseFormatter.formatOkResponse(res, result);
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {
                 err: err
@@ -34,8 +34,8 @@ module.exports = {
     },
     async getAllDonePackages(req, res) {
         try {
-            const data = 1;
-            httpResponseFormatter.formatOkResponse(res, data)
+            const result = await packageRepository.getAllDone();
+            httpResponseFormatter.formatOkResponse(res, result);
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {
                 err: err
