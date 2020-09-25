@@ -64,9 +64,8 @@ module.exports = {
     },
     async assignPackage(req, res) {
         try {
-            const couriers = await packageRepository.getAll();
-            httpResponseFormatter.formatOkResponse(res, couriers);
-
+            const result = await packageRepository.assignToCourier(req.params.id, req.body._id);
+            httpResponseFormatter.formatOkResponse(res, result);
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {
                 err: err
