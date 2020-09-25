@@ -44,8 +44,8 @@ module.exports = {
     },
     async getAllPackages(req, res) {
         try {
-            const data = 1;
-            httpResponseFormatter.formatOkResponse(res, data)
+            const result = await packageRepository.getAll();
+            httpResponseFormatter.formatOkResponse(res, result)
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {
                 err: err

@@ -7,7 +7,7 @@ module.exports = app => {
     // app.get('/package/new', packageController.getAllSubmittedPackages);
     // app.get('/package/ip', packageController.getAllInProgressPackages);
     // app.get('/package/done', packageController.getAllDonePackages);
-    // app.get('/package', packageController.getAllPackages);
+    app.get('/package', packageController.getAllPackages);
     app.post('/package', packageController.submitRequest);
     // app.put('/package/assign/:id', packageController.assignPackage);
     // app.put('/package/status/:id', packageController.updatePackageStatus);
