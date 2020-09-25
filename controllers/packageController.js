@@ -64,7 +64,7 @@ module.exports = {
     },
     async assignPackage(req, res) {
         try {
-            const couriers = await couriersRepository.getAll();
+            const couriers = await packageRepository.getAll();
             httpResponseFormatter.formatOkResponse(res, couriers);
 
         } catch(err) {
@@ -75,7 +75,7 @@ module.exports = {
     },
     async updatePackageStatus(req, res) {
         try {
-            const result = await couriersRepository.createOne(req.body);
+            const result = await packageRepository.updateStatus(req.params.id, req.body.status);
             httpResponseFormatter.formatOkResponse(res, result);
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {

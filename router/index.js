@@ -10,7 +10,7 @@ module.exports = app => {
     app.get('/package', packageController.getAllPackages);
     app.post('/package', packageController.submitRequest);
     // app.put('/package/assign/:id', packageController.assignPackage);
-    // app.put('/package/status/:id', packageController.updatePackageStatus);
+    app.put('/package/status/:id', packageController.updatePackageStatus);
 
     app.get('/courier', courierController.getAllCouriers);
     app.post('/courier', courierController.createCourier);
