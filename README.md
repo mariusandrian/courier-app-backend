@@ -1,0 +1,2 @@
+# Courier App
+This is the backend portion of Courier App. For the front-end portion which contains the full description, please see the [front end repo](https://github.com/mariusandrian/courier-app-frontend)
