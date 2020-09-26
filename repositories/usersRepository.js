@@ -35,4 +35,16 @@ module.exports = {
         if (!result) throw new Error(`User with email '${email}' does not exist`);
         return result;
     },
+    async checkEmailExist (email) {
+        console.log('check email')
+        const [result] = await doFindMany({email: email});
+        console.log('result of email check is', result);
+        if (result) return true;
+        return false;
+    },
+    async checkUsernameExist (username) {
+        const [result] = await doFindMany({username: username});
+        if (result) return true;
+        return false;
+    }
 }
