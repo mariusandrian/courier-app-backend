@@ -24,7 +24,7 @@ const doFindMany = async condition => {
          return newOne;
      },
      getPackageByCustomerId (customerId) {
-        return doFindMany({requesterId: Id})
+        return doFindMany({requesterId: customerId})
      },
      async assignToCourier (packageId, courierId) {
         const result = await db.packages.findOneAndUpdate(

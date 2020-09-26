@@ -16,6 +16,6 @@ module.exports = app => {
     app.post('/courier', courierController.createCourier);
 
     app.post('/signup', usersController.signup);
-    app.get('/login', usersController.login);
+    app.post('/login', usersController.login);
     // app.get('/logout', usersController.logout);
 }
