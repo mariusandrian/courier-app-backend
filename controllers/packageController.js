@@ -42,6 +42,16 @@ module.exports = {
             })
         }
     },
+    async getByPackageId(req, res) {
+        try {
+            const result = await packageRepository.getByPackageId(req.params.id);
+            httpResponseFormatter.formatOkResponse(res, result);
+        } catch(err) {
+            httpResponseFormatter.formatOkResponse(res, {
+                err: err
+            })
+        }
+    },
     async getAllPackages(req, res) {
         try {
             const result = await packageRepository.getAll();
@@ -64,7 +74,7 @@ module.exports = {
     },
     async assignPackage(req, res) {
         try {
-            const result = await packageRepository.assignToCourier(req.params.id, req.body._id);
+            const result = await packageRepository.assignToCourier(req.params.id, req.body);
             httpResponseFormatter.formatOkResponse(res, result);
         } catch(err) {
             httpResponseFormatter.formatOkResponse(res, {

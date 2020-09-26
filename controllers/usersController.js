@@ -17,7 +17,6 @@ module.exports = {
         try {
             const user = await usersRepository.getOneByEmail(req.body.email);
             if (bcrypt.compareSync(req.body.password, user.password)) {
-                // req.session.userId = user._id;
                 httpResponseFormatter.formatOkResponse(res, user);
             } else {
                 httpResponseFormatter.formatOkResponse(res, {
